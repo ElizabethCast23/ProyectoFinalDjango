@@ -13,14 +13,17 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+    
+    admin --- 12345678
 """
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from django.shortcuts import redirect
+from blog import views
 
 urlpatterns = [
-    path('', lambda request: redirect('/accounts/login/')),
+    path('', views.inicio, name='inicio'),
 
     path('admin/', admin.site.urls),
 
@@ -35,4 +38,8 @@ urlpatterns = [
         auth_views.LogoutView.as_view(),
         name='logout'
     ),
+
+    path('accounts/register/', views.registro_usuario, name='register'),
+
+    path('dashboard/', views.dashboard, name='dashboard'),
 ]

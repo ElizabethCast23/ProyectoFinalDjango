@@ -3,9 +3,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Login Usuario</title>
+    <title>Registro de Usuario</title>
 
-    <!-- Estilos del admin -->
     <link rel="stylesheet" href="{% static 'admin/css/base.css' %}">
     <link rel="stylesheet" href="{% static 'admin/css/login.css' %}">
 </head>
@@ -14,7 +13,7 @@
 
 <div id="container">
 
-    <h1 id="site-name">Login de Usuario</h1>
+    <h1 id="site-name">Registro de Usuario</h1>
 
     <div id="content">
         <div id="content-main">
@@ -22,34 +21,20 @@
             <form method="post">
                 {% csrf_token %}
 
-                <div class="form-row">
-                    {{ form.username.label_tag }}
-                    {{ form.username }}
-                </div>
-
-                <div class="form-row">
-                    {{ form.password.label_tag }}
-                    {{ form.password }}
-                </div>
+                {{ formulario.as_p }}
 
                 <div class="submit-row">
-                    <input type="submit" value="Ingresar">
+                    <input type="submit" value="Registrarse">
                 </div>
-
             </form>
 
             <br>
 
-            <!-- LINKS -->
-
-
-            <!-- registro -->
             <p style="text-align:center;">
-                ¿No tienes cuenta?
-                <a href="/accounts/register/">Regístrate aquí</a>
+                ¿Ya tienes cuenta?
+                <a href="/accounts/login/">Ir al login</a>
             </p>
 
-            <!-- admin -->
             <p style="text-align:center;">
                 ¿Eres administrador?
                 <a href="/admin/login/">Ir al login de admin</a>
