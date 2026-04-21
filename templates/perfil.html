@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block title %}Editar Perfil{% endblock %}
+
+{% block content %}
+    <h2>Perfil</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <!--{{ form.as_p }}  Mostramos el formulario -->
+        <!--<button type="submit" class="boton">Guardar cambios</button>-->
+    </form>
+
+    <a href="{% url 'dashboard' %}" class="boton">Volver al Dashboard</a>
+{% endblock %}

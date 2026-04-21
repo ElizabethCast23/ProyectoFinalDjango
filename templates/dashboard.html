@@ -1,66 +1,14 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Dashboard</title>
+{% extends 'layout.html' %}
 
-    <link rel="stylesheet" href="{% static 'admin/css/base.css' %}">
-    <link rel="stylesheet" href="{% static 'admin/css/dashboard.css' %}">
+{% block title %}Dashboard del Blog{% endblock %}
 
-    <style>
-        .panel-personalizado {
-            max-width: 900px;
-            margin: 40px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.08);
-        }
-
-        .acciones {
-            margin-top: 30px;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .boton {
-            display: inline-block;
-            padding: 10px 18px;
-            background-color: #417690;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .boton:hover {
-            background-color: #205067;
-        }
-    </style>
-</head>
-<body>
-
-    <div id="header">
-        <div id="branding">
-            <h1 id="site-name">Dashboard del Blog</h1>
-        </div>
-    </div>
-
+{% block content %}
     <div class="panel-personalizado">
         <h2>Bienvenido, {{ user.username }}</h2>
-        <p>Has iniciado sesión correctamente en tu sistema.</p>
+        <p>Has iniciado sesión correctamente en tu sistema de blog.</p>
 
         <div class="acciones">
-            <form action="{% url 'logout' %}" method="post" style="display:inline;">
-                {% csrf_token %}
-                <button type="submit" class="boton">Cerrar sesión</button>
-            </form>
+            <a href="{% url 'logout' %}" class="boton">Cerrar sesión</a>
         </div>
     </div>
-
-</body>
-</html>
+{% endblock %}

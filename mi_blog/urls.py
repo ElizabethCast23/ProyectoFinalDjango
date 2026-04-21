@@ -42,4 +42,5 @@ urlpatterns = [
     path('accounts/register/', views.registro_usuario, name='register'),
 
     path('dashboard/', views.dashboard, name='dashboard'),
+    path('perfil/', views.perfil, name='perfil')
 ]
